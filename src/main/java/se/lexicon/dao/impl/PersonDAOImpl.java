@@ -3,7 +3,6 @@ package se.lexicon.dao.impl;
 import se.lexicon.dao.PersonDAO;
 import se.lexicon.exception.MySQLException;
 import se.lexicon.model.Person;
-import se.lexicon.sequence.PersonIdSequencer;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -51,17 +50,6 @@ public class PersonDAOImpl implements PersonDAO {
     }
 
     @Override
-    public Person persist(Person person) {
-        if (person.getId() != 0) throw new IllegalArgumentException("Invalid state person.id was not 0 or null");
-        if (findByEmail(person.getEmail()) != null) {
-            throw new IllegalStateException("Email " + person.getEmail() + " is already taken");
-        }
-        person.setId(PersonIdSequencer.nextId());
-        persons.add(person);
-        return (Person) persons;
-    }
-
-    @Override
     public Person findById(int id) {
         Person person = null;
         try {
@@ -83,15 +71,6 @@ public class PersonDAOImpl implements PersonDAO {
         return person;
     }
 
-    @Override
-    public Person findByEmail(String email) {
-        for (Person person : persons) {
-            if (person.getEmail().equalsIgnoreCase(email)) {
-                return person;
-            }
-        }
-        return null;
-    }
 
     @Override
     public List<Person> findAll() {

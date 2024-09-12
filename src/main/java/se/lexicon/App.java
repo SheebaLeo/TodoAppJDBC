@@ -6,11 +6,9 @@ import java.sql.Connection;
 import java.time.LocalDate;
 
 import se.lexicon.dao.db.TodoDbConnection;
-import se.lexicon.dao.impl.AppUserDAOImpl;
 import se.lexicon.dao.impl.PersonDAOImpl;
 import se.lexicon.dao.impl.TodoItemDAOImpl;
 import se.lexicon.dao.impl.TodoItemTaskDAOImpl;
-import se.lexicon.model.Person;
 import se.lexicon.model.TodoItem;
 
 /**
@@ -21,7 +19,6 @@ public class App
 {
     public static void main( String[] args ) {
         Connection connection = TodoDbConnection.getConnection();
-        AppUserDAOImpl appUserDAO = new AppUserDAOImpl();
         PersonDAOImpl personDAO = new PersonDAOImpl(connection);
         TodoItemDAOImpl todoItemDAO = new TodoItemDAOImpl(connection);
         TodoItemTaskDAOImpl todoItemTaskDAO = new TodoItemTaskDAOImpl();

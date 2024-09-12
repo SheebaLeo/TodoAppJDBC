@@ -7,11 +7,7 @@ import java.util.List;
 public interface PersonDAO {
     public abstract Person create(Person person);
 
-    public abstract Person persist(Person person);
-
     public abstract Person findById(int id);
-
-    public abstract Person findByEmail(String email);
 
     public abstract List<Person> findAll();
 

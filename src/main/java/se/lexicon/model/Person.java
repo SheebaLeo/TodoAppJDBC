@@ -9,26 +9,6 @@ public class Person {
 
     private String lastName;
 
-    private String email;
-
-    private AppUser credentials;
-
-    public Person(String firstName, String lastName, String email) {
-        if (firstName == null || firstName.isEmpty()) {
-            throw new IllegalArgumentException("fristName cannot be null or empty");
-        }
-        if (lastName == null || lastName.isEmpty()) {
-            throw new IllegalArgumentException("lastName cannot be null or empty");
-        }
-        if (email == null || email.isEmpty()) {
-            throw new IllegalArgumentException("email cannot be null or empty");
-        }
-        setFirstName(firstName);
-        setLastName(lastName);
-        setEmail(email);
-
-        setCredentials(credentials);
-    }
 
     public Person(int id, String firstName, String lastName) {
         this.id = id;
@@ -73,25 +53,6 @@ public class Person {
             throw new IllegalArgumentException("lastName cannot be null or empty");
         }
         this.lastName = lastName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        if (email == null || email.isEmpty()) {
-            throw new IllegalArgumentException("email cannot be null or empty");
-        }
-        this.email = email;
-    }
-
-    public AppUser getCredentials() {
-        return credentials;
-    }
-
-    public void setCredentials(AppUser credentials) {
-        this.credentials = credentials;
     }
 
     /*public String getSummary() {
