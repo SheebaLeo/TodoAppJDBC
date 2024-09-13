@@ -10,15 +10,11 @@ public interface TodoItemDAO {
 
     public abstract TodoItem create(TodoItem todoItem);
 
-    public abstract TodoItem persist(TodoItem todoItem);
-
     public abstract TodoItem findById(int id);
 
     public abstract List<TodoItem> findAll();
 
     public abstract List<TodoItem> findAllByDoneStatus(boolean done);
-
-    public abstract List<TodoItem> findByTitleContains(String title);
 
     public abstract List<TodoItem> findByAssigneeId(int personId);
 

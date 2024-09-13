@@ -61,17 +61,6 @@ public class TodoItemDAOImpl implements TodoItemDAO {
     }
 
     @Override
-    public TodoItem persist(TodoItem todoItem) {
-        if (findByTitleContains(todoItem.getTitle()).contains(todoItem.getTitle())) {
-            throw  new IllegalArgumentException("This" + todoItem.getTitle() + "Todo item is already exist");
-        }
-        if (!todoItems.contains(todoItem)) {
-            todoItems.add(todoItem);
-        }
-        return (TodoItem) todoItems;
-    }
-
-    @Override
     public TodoItem findById(int id) {
 
         try {
@@ -165,17 +154,6 @@ public class TodoItemDAOImpl implements TodoItemDAO {
             throw new MySQLException(errorMessage, e);
         }
         return todoItems;
-    }
-
-    @Override
-    public List<TodoItem> findByTitleContains(String title) {
-        List<TodoItem> todoItemsTitleContains = new ArrayList<>();
-        for (TodoItem todoItem : todoItems) {
-            if (todoItem.getTitle().equals(title)) {
-                todoItemsTitleContains.add(todoItem);
-            }
-        }
-        return todoItemsTitleContains;
     }
 
     @Override

@@ -8,7 +8,6 @@ import java.time.LocalDate;
 import se.lexicon.dao.db.TodoDbConnection;
 import se.lexicon.dao.impl.PersonDAOImpl;
 import se.lexicon.dao.impl.TodoItemDAOImpl;
-import se.lexicon.dao.impl.TodoItemTaskDAOImpl;
 import se.lexicon.model.TodoItem;
 
 /**
@@ -21,7 +20,6 @@ public class App
         Connection connection = TodoDbConnection.getConnection();
         PersonDAOImpl personDAO = new PersonDAOImpl(connection);
         TodoItemDAOImpl todoItemDAO = new TodoItemDAOImpl(connection);
-        TodoItemTaskDAOImpl todoItemTaskDAO = new TodoItemTaskDAOImpl();
 
         Person person = new Person(4, "qsds", "sdsdx" );
          System.out.println( "Hello World!" );
